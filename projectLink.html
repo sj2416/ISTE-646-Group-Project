@@ -7,7 +7,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="">
 		<meta name="author" content="">
-		<title>Dashboard Template for Bootstrap</title>
+		<title>Project Approval System</title>
 		<link href="./css/bootstrap.min.css" rel="stylesheet">
 		<link href="./css/dashboard.css" rel="stylesheet">
 		<script src="./js/ie-emulation-modes-warning.js"></script>
@@ -16,6 +16,8 @@
 		<script src="./js/bootstrap.min.js"></script>
 		<script src="./js/holder.js"></script>
 		<script src="./js/ie10-viewport-bug-workaround.js"></script>
+		
+</script> 
 	</head>
 
 	<body>
@@ -33,25 +35,26 @@
 				<div class="col-sm-3 col-md-2 sidebar">
 					<h3>Your Actions</h3>
 					<ul class="nav nav-sidebar">
-						<li><a href="createSessions.html" class="active">Create Sessions</a></li>
-						<li><a href="createSubmissions.html">Create Submissions</a></li>
-						<li><a href="topicApproval.html">Students Submissions</a></li>
+						<li><a href="submitProposal.html">Submit Proposal</a></li>
+						<li><a href="projectLink.html" class="active">Submit Project Link </a></li>
+						<li><a href="approvedProjects.html">List of Approved project</a></li>
 					</ul>
 				</div>
 				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-					<h1 class="page-header">Set Number of Sessions</h1>
+					
 					<div class="row placeholders">
 						<div class="col-xs-7 col-sm-9 placeholder">
 							<div class="panel panel-default">
 								<div class="panel-body">
-									<table class="table table-hover" data-role="table" id="movie-table" data-filter="true" data-input="#filterTable-input" >
-										<thead>
-											<th>saf</th>
-										<thead>
-										<tbody>
-											<td>sdf</td>
-										</tbody>
-									</table>
+									<form>
+										
+										<div class="form-group">
+											<label for="project-link" style="width:25%">Submit Project link</label>
+											<input type="text" class="form-control" id="project-link" >
+										</div>
+										
+										<button type="submit" class="btn btn-primary">Submit</button>
+									</form>
 								</div>
 							</div>
 						</div>

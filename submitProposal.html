@@ -7,7 +7,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="">
 		<meta name="author" content="">
-		<title>Dashboard Template for Bootstrap</title>
+		<title>Project Approval System</title>
 		<link href="./css/bootstrap.min.css" rel="stylesheet">
 		<link href="./css/dashboard.css" rel="stylesheet">
 		<script src="./js/ie-emulation-modes-warning.js"></script>
@@ -30,28 +30,58 @@
 
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-sm-3 col-md-2 sidebar">
+				<div class="col-sm-3 col-md-2 sidebar">	
 					<h3>Your Actions</h3>
 					<ul class="nav nav-sidebar">
-						<li><a href="createSessions.html" class="active">Create Sessions</a></li>
-						<li><a href="createSubmissions.html">Create Submissions</a></li>
-						<li><a href="topicApproval.html">Students Submissions</a></li>
+						<li><a href="submitProposal.html" class="active">Submit Proposal	</a></li>
+						<li><a href="projectLink.html">Submit Project Link </a></li>
+						<li><a href="approvedProjects.html">List of Approved project</a></li>
 					</ul>
 				</div>
 				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-					<h1 class="page-header">Set Number of Sessions</h1>
+					<div class="row">
+					  <div class="col-sm-6">
+					  		<form role="form">
+							  <div class="form-group">
+							    <label for="project-topic">Enter topic for project:</label>
+							    <br>
+							    <input type="text" class="form-control" id="project-topic" style="width: 100%">
+							  </div>
+							  <div class="form-group">
+							    <label for="project-topic">Enter the link for the proposal:</label>
+							    <br>
+							    <input type="text" class="form-control" id="project-topic" style="width: 100%">
+							  </div>
+							  
+							  <button type="submit" class="btn btn-primary">Submit</button>
+							</form>
+					  </div>
+
+					  	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+					
 					<div class="row placeholders">
 						<div class="col-xs-7 col-sm-9 placeholder">
 							<div class="panel panel-default">
 								<div class="panel-body">
-									<table class="table table-hover" data-role="table" id="movie-table" data-filter="true" data-input="#filterTable-input" >
-										<thead>
-											<th>saf</th>
-										<thead>
-										<tbody>
-											<td>sdf</td>
-										</tbody>
-									</table>
+									List of Submitted/Approved projects
+
+									  <table class="table table-bordered" style="text-align: left">
+									    <thead>
+									      <tr>
+									        <th>Student Name</th>
+									        <th>Topic</th>
+									        <th>Status</th>
+									        
+									      </tr>
+									    </thead>
+									    <tbody>
+									      <tr>
+									        <td>Rohan</td>
+									        <td>Bill Gates</td>
+									        <td>Submitted</td>
+									        
+									       </tbody>
+									  </table>
 								</div>
 							</div>
 						</div>
@@ -60,4 +90,3 @@
 			</div>
 		</div>
 	</body>
-</html>
