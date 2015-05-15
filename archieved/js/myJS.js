@@ -16,3 +16,5 @@ $(function() {
 	});
 
 });
+$('#sandbox-container div').datepicker({
+});
