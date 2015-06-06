@@ -16,7 +16,7 @@ if($_GET['out'] == 1){
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="">
 		<meta name="author" content="">
-		<title>Dashboard Template for Bootstrap</title>
+		<title>Project Approval System</title>
 		<link href="./css/bootstrap.min.css" rel="stylesheet">
 		<link href="./css/dashboard.css" rel="stylesheet">
 		<link href="./css/layout.css" rel="stylesheet">
@@ -60,12 +60,25 @@ if($_GET['out'] == 1){
 								<div class="panel-body">
 									<div class="row">
 										<div class="col-lg-12">
-											<form id="login-form" action="processLogin.php" method="post" role="form" style="display: block;">
+											<form id="login-form" action="processLogin.php" onsubmit="return validateFields();" method="post" role="form" data-toggle="validator" style="display: block;">										
 												<div class="form-group">
-													<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+												<?php
+													if(isset($_GET['reg'])){
+														echo "<p style='color:green'>Successfully Registered Your Account</p>";
+													}
+													if(isset($_GET['noclass'])){
+														echo "<p style='color:red'>That session does not exist at that school</p>";
+													}
+												?>
+													<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="" required>
 												</div>
 												<div class="form-group">
-													<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+													<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" required>
+													<?php
+														if(isset($_GET['fail'])){
+															echo "<p style='color:red'>Incorrect username/password combination</p>";
+														}
+													?>
 												</div>
 												<div class="form-group">
 													<div class="row">
@@ -75,23 +88,51 @@ if($_GET['out'] == 1){
 													</div>
 												</div>
 											</form>
-											<form id="register-form" action="processLogin.php" method="post" role="form" style="display: none;">
+											<form id="register-form" action="processLogin.php" onsubmit="return validateFields();" method="post" role="form" data-toggle="validator" style="display: none;">
 												<div class="form-group">
-													<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+													<input type="text" name="student_name" id="student_name" tabindex="1" class="form-control" placeholder="Your Name" value="" required>
+												</div>	
+												<div class="form-group">
+													<input type="text" name="username" id="username" tabindex="2" class="form-control" placeholder="Username" value="" required>
 												</div>
-												<div class="form-group">
-													<input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+												<div class="form-group" >
+													<input type="email" name="email" id="email" tabindex="3" class="form-control" placeholder="Email Address" value="" required>
 												</div>
+											<div class="form-group">
+												<input type="radio" name="school" id="UofR" value="UofR" tabindex="4" required /><label for="UofR" >U of R</label>&nbsp&nbsp
+												<input type="radio" name="school" id="RIT" value="RIT" tabindex="5"/><label for="RIT">RIT</label>
+											</div>
+											<div class="form-group">
+											Session Number:
+												<select name="session" id='session' tabindex="6" required>
+												<?php
+												echo "<option value=''>please select</option>";
+												for($i=1;$i<11;$i++)
+													echo "<option value='$i'>$i</option>";
+												?>
+												</select>
+											</div>
 												<div class="form-group">
-													<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+													<input type="password" name="password" id="password" tabindex="7" class="form-control" placeholder="Password" required>
 												</div>
-												<div class="form-group">
-													<input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
+												<div class="form-group" >
+													<input type="password" name="confirm-password" id="confirm-password" tabindex="8" class="form-control" placeholder="Confirm Password" required>
+													<?php
+														if(isset($_GET['regFail'])){
+															echo "<p style='color:red'>* You must fill out all of the fields</p>";
+														}
+														if(isset($_GET['pass'])){
+															echo "<p style='color:red' >* Your passwords do not match</p>";
+														}
+														if(isset($_GET['userFail'])){
+															echo "<p style='color:red' >* That username is already taken</p>";
+														}
+													?>
 												</div>
 												<div class="form-group">
 													<div class="row">
 														<div class="col-sm-6 col-sm-offset-3">
-															<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" style="width:120px" value="Register Now">
+															<input type="submit" name="register-submit" id="register-submit" tabindex="9" class="form-control btn btn-register" style="width:120px" value="Register Now">
 														</div>
 													</div>
 												</div>

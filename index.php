@@ -7,7 +7,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="">
 		<meta name="author" content="">
-		<title>Dashboard Template for Bootstrap</title>
+		<title>Project Approval System</title>
 		<link href="./css/bootstrap.min.css" rel="stylesheet">
 		<link href="./css/dashboard.css" rel="stylesheet">
 		<script src="./js/ie-emulation-modes-warning.js"></script>
@@ -22,9 +22,9 @@
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container-fluid">
 				<div class="navbar-header">
-					<a class="navbar-brand" href="index.html"><img style="width:35px;height:30px;margin-top: -5px;" src="./img/logo.jpg">
+					<a class="navbar-brand" href="index.php"><img style="width:35px;height:30px;margin-top: -5px;" src="./img/logo.jpg">
 				</div>
-				<b><font size="3">The Approval System</a><a href="login.php?out=1" style="right:50px; position:fixed;margin-top: 10px;">Sign in</a></font></b>
+				<b><font size="3">The Approval System</a><a href="login.php?out=1" class ="btn btn-info" style="right:50px; position:fixed;margin-top: 10px;">Sign in</a></font></b>
 			</div>
 		</nav>
 

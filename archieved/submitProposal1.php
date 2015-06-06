@@ -15,42 +15,19 @@ require "checkToken.php";
 		<link href="./css/dashboard.css" rel="stylesheet">
 		<script src="./js/ie-emulation-modes-warning.js"></script>
 		<style type="text/css"></style>
-		<script src="./js/jquery-1.10.1.js"></script>
+		<script src="./js/jquery-2.1.4.min.js"></script>
 		<script src="./js/bootstrap.min.js"></script>
 		<script src="./js/holder.js"></script>
 		<script src="./js/ie10-viewport-bug-workaround.js"></script>
-<script>
-					var columnFilter = 2;
-		 
-		// to apply the filter on the second column in a table
-		$(document).bind('keyup', '#project-topic', function(e){
-			try{
-				var value = $.trim(document.getElementById("project-topic").value).toLowerCase();
-				// apply the filter only on the iLocation column
-				var locationFilter = 'td:nth-child('+columnFilter+')';
-				$(locationFilter).each(function(i, val) {
-					var cellContent = $.trim($(this).text()).toLowerCase();
-					if(cellContent.indexOf(value) == -1){
-						$(val).parent('tr').hide();
-					}
-					else {
-						$(val).parent('tr').show();
-					}
-				});        
-			} catch(e){
-				console.log('Error! - ' +e);
-			}
-		});
-		</script>
 	</head>
 
 	<body>
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container-fluid">
 				<div class="navbar-header" >
-					<a class="navbar-brand" href="student.php"><img style="width:35px;height:30px;margin-top: -5px;" src="./img/logo.jpg">
+					<a class="navbar-brand" href="index.php"><img style="width:35px;height:30px;margin-top: -5px;" src="./img/logo.jpg">
 				</div>
-				<b><font size="3">The Approval System</a><a href="login.php?out=1" class ="btn btn-info" style="right:50px; position:fixed;margin-top: 10px;">Sign out</a></font></b>
+				<b><font size="3">The Approval System</a><a href="login.php?out=1" style="right:50px; position:fixed;margin-top: 10px;">Sign out</a></font></b>
 			</div>
 		</nav>
 
@@ -70,20 +47,20 @@ require "checkToken.php";
 					  <?php
 					  	if(!$data->checkProposalExists($_SESSION['userId'])) : 
 					  ?>
-					  		<form role="form" action="submitProposal.php" role="form" data-toggle="validator" method="post">
+					  		<form role="form" action="submitProposal.php" method="post">
 							  <div class="form-group">
 							    <label for="project-topic">Enter topic for project:</label>
 							    <br>
-							    <input name="project-topic" type="text" class="form-control" id="project-topic" style="width: 100%" required>
+							    <input name="project-topic" type="text" class="form-control" id="project-topic" style="width: 100%">
                   <p id='topic_error' style='display: inline'></p>
 							  </div>
 							  <div class="form-group">
-							    <label for="project-link">Enter the link for the proposal:</label>
+							    <label for="project-topic">Enter the link for the proposal:</label>
 							    <br>
-							    <input name="project-link" type="text" class="form-control" id="project-link" style="width: 100%" required>
+							    <input name="project-link" type="text" class="form-control" id="project-topic" style="width: 100%">
                   <P id='link_error' style='display: inline'></P>
 							  </div>
-							  <input type="submit" value="submit" name="form_submit" class="btn btn-primary"/>
+							  <input type="submit" value="submit" name="form_submit"/>
 							  <!--<button type="submit" class="btn btn-primary">Submit</button>-->
 							</form>
                   <?php
@@ -114,13 +91,9 @@ require "checkToken.php";
 						<div class="col-xs-7 col-sm-9 placeholder">
 							<div class="panel panel-default">
 								<div class="panel-body">
-									List of Submitted/Approved projects<br/>
-									<?php
-										$student = $data->getStudent($_SESSION['userId']);
-										echo "Your Status: ".$student[5];
-									?>
+									List of Submitted/Approved projects
 
-									  <table class="table table-bordered" style="text-align: left" id="list">
+									  <table class="table table-bordered" style="text-align: left">
 									    <thead>
                       <?="<caption>School: ".$_SESSION['school']." - session: ".$_SESSION['sec']."</caption>"?>
 									      <tr>
